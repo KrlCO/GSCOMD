@@ -37,23 +37,7 @@ namespace GSCOMD_2._0
            
         }
 
-        //private void MuestraAtencionCli()
-        //{
-        //    string consulta = "select * from TDDOCU_ATEN";
-
-        //    SqlDataAdapter adapter = new SqlDataAdapter(consulta, meConectSql);
-
-        //    using (adapter)
-        //    {
-        //        DataTable dt = new DataTable();
-        //        adapter.Fill(dt);
-
-        //        listaAtencion.DisplayMemberPath = "CO_USUA_CREA";
-        //        listaAtencion.SelectedValuePath = "CO_ATEN";
-        //        listaAtencion.ItemsSource = dt.DefaultView;
-        //    }
-        //}
-
+        //Metodo para la generacion de atencion comensal
         private void MuestraAtencionCli()
         {
             using (SqlConnection conn = new SqlConnection(meConectSql))
