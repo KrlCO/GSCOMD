@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Diagnostics;
+using System.Windows.Input;
 using System.Data.SqlClient;
 using System.Data;
-//using System.
+//using Path = System.IO.Path;
+using System.IO;
 
 namespace GSCOMD_2._0
 {
@@ -28,13 +21,12 @@ namespace GSCOMD_2._0
 
         public MainWindow()
         {
+            //InitializeComponent();
+            //meConectSql = ConfigurationManager.ConnectionStrings["GSCOMD_2._0.Properties.Settings.GSCOMDConnectionString1"]?.ConnectionString;
+
             InitializeComponent();
+            meConectSql = ConfigurationManager.ConnectionStrings["gscomd_2._0.properties.settings.gscomdconnectionstring1"]?.ConnectionString;
 
-            
-            meConectSql = ConfigurationManager.ConnectionStrings["GSCOMD_2._0.Properties.Settings.GSCOMDConnectionString1"]?.ConnectionString;
-
-
-           
         }
 
         //private void MuestraAtencionCli()
@@ -53,6 +45,106 @@ namespace GSCOMD_2._0
         //        listaAtencion.ItemsSource = dt.DefaultView;
         //    }
         //}
+
+
+        private void txtCodeTrab_validacion(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                if (int.TryParse(txtCodeTrab.Text, out int codigo))
+                {
+                    (string code,string nom) = consultaTrabajador(codigo);
+                    lblNombTrab.Content = nom.ToString();
+                    consultarImagen(code);
+                }
+            }
+        }
+
+        private (string, string) consultaTrabajador(int codigo) {
+            try {
+                using (SqlConnection conn = new SqlConnection(meConectSql))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("SP_TCASIG_Q02", conn)) {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ISCO_TRAB", codigo);
+                        cmd.Parameters.AddWithValue("@ISCO_COME", "01");
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                //string codeTrab = reader[0].ToString();
+                                //string nombTrab = reader[1].ToString();
+
+                                //return (reader[0].ToString(), reader[1].ToString());
+                                return (reader["CO_TRAB"].ToString(), reader["NO_PERS"].ToString());
+                                //MessageBox.Show($"{codeTrab.ToString()} / {nombTrab.ToString()}");
+                            }
+                            else
+                            {
+                                MessageBox.Show("NO TIENE ASIGNACION", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                imgTrab.Source = null;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex){ 
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return ("", "");
+        }
+
+        private void consultarImagen(string codigo)
+        {
+            string networkPath = @"\\10.10.10.99\gssist\FOTO";
+            string user = "compartido";
+            string pass = "P3ruBu$2024";
+            string comand = $"net use {networkPath} /user:{user} {pass}";
+
+            try
+            {
+                ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", "/C " + comand)
+                {
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+
+                Process process = new Process { StartInfo = psi };
+                process.Start();
+                process.WaitForExit();
+
+                if (process.ExitCode == 0)
+                {
+                    string nombreImagen = "T" + codigo.PadLeft(11, '0') + ".jpg";
+                    string rutaImagen = Path.Combine(networkPath, nombreImagen);
+
+                    if (File.Exists(rutaImagen))
+                    {
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.UriSource = new Uri(rutaImagen);
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.EndInit();
+
+                        imgTrab.Source = bitmap;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Imagen no encontrada para el trabajador.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        imgTrab.Source = null;
+                    }
+                }
+            }
+            catch (Exception ex){
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
 
         private void MuestraAtencionCli()
         {

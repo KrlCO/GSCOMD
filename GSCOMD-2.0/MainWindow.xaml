@@ -11,7 +11,7 @@
             <ColumnDefinition Width="163*"/>
             <ColumnDefinition Width="101*"/>
         </Grid.ColumnDefinitions>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="144,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="txtCodeTrab" HorizontalAlignment="Left" Height="23" Margin="144,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="txtCodeTrab_validacion"/>
         <Label Content="Codigo Trabajador:" HorizontalAlignment="Left" Margin="19,16,0,0" VerticalAlignment="Top"/>
         <Label Content="Tipo Comida:" HorizontalAlignment="Left" Margin="19,122,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="144,122,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
@@ -23,6 +23,8 @@
 
         <TextBox Name="txtCodigoTrabajador" Height="23" Width="120" TextChanged="txtCodigoTrabajador_TextChanged" Margin="144,162,225,234" />
         <Label Name="lblAsignacion" Content="Estado" HorizontalAlignment="Left" Margin="19,205,0,0" VerticalAlignment="Top" Width="266"/>
+        <Image x:Name="imgTrab" Grid.Column="1" HorizontalAlignment="Left" Height="227" Margin="41,19,0,0" VerticalAlignment="Top" Width="227"/>
+        <Label x:Name="lblNombTrab" Content="" HorizontalAlignment="Left" Margin="290,19,0,0" VerticalAlignment="Top" Width="179" Height="23"/>
         <!--<Label Name="lblAsignacion" Content="Estado" FontWeight="Bold" Grid.ColumnSpan="2" />-->
 
     </Grid>
