@@ -37,23 +37,7 @@ namespace GSCOMD_2._0
            
         }
 
-        //private void MuestraAtencionCli()
-        //{
-        //    string consulta = "select * from TDDOCU_ATEN";
-
-        //    SqlDataAdapter adapter = new SqlDataAdapter(consulta, meConectSql);
-
-        //    using (adapter)
-        //    {
-        //        DataTable dt = new DataTable();
-        //        adapter.Fill(dt);
-
-        //        listaAtencion.DisplayMemberPath = "CO_USUA_CREA";
-        //        listaAtencion.SelectedValuePath = "CO_ATEN";
-        //        listaAtencion.ItemsSource = dt.DefaultView;
-        //    }
-        //}
-
+        //Metodo para la generacion de atencion comensal
         private void MuestraAtencionCli()
         {
             using (SqlConnection conn = new SqlConnection(meConectSql))
@@ -153,11 +137,16 @@ namespace GSCOMD_2._0
             //MessageBox.Show($"Cadena de conexión: {meConectSql}");
         }
 
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
 
         //Tener en cuenta para el Post loggeo se debe mostrar esta opcion-  Seleccionar el comedor y la caja que tenga asignada el comedor
         //private void listaAtencion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
-           
+
         //}
 
         //Probar que la conexion a la DB sea exitosa
