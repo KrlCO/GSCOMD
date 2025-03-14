@@ -65,3 +65,14 @@ C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\GSCOMD-2.0_MarkupCompile.cache
 C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\GSCOMD-2.0_MarkupCompile.lref
 C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\GSCOMD-2.0.exe
 C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\GSCOMD-2.0.pdb
+C:\GSCOMD-2.0\GSCOMD-2.0\bin\Debug\GSCOMD-2.0.exe.config
+C:\GSCOMD-2.0\GSCOMD-2.0\bin\Debug\GSCOMD-2.0.exe
+C:\GSCOMD-2.0\GSCOMD-2.0\bin\Debug\GSCOMD-2.0.pdb
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\Comedor.baml
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\ComedorIca.baml
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\Login.baml
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\MainWindow.baml
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\GSCOMD-2.0.g.resources
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\GSCOMD_2._0.Properties.Resources.resources
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\GSCOMD-2.0.csproj.GenerateResource.cache
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Debug\GSCOMD-2.0.csproj.CoreCompileInputs.cache

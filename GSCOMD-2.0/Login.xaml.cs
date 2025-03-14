@@ -85,5 +85,10 @@ namespace GSCOMD_2._0
             }
             return null;
         }
+
+        private void txtUser_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
     }
 }

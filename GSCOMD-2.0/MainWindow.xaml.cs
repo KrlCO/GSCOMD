@@ -24,7 +24,7 @@ namespace GSCOMD_2._0
     /// </summary>
     public partial class MainWindow : Window
     {
-       private string meConectSql;
+       //private string meConectSql;
 
         public MainWindow()
         {
