@@ -45,6 +45,7 @@ namespace GSCOMD_2._0
         //        listaAtencion.ItemsSource = dt.DefaultView;
         //    }
         //}
+        //
 
 
         private void txtCodeTrab_validacion(object sender, KeyEventArgs e)
@@ -68,7 +69,7 @@ namespace GSCOMD_2._0
                     using (SqlCommand cmd = new SqlCommand("SP_TCASIG_Q02", conn)) {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ISCO_TRAB", codigo);
-                        cmd.Parameters.AddWithValue("@ISCO_COME", "01");
+                        cmd.Parameters.AddWithValue("@ISCO_COME", "00");
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
