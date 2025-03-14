@@ -1,27 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GSCOMD_2._0
 {
-    /// <summary>
-    /// Lógica de interacción para ComedorIca.xaml
-    /// </summary>
-    public partial class ComedorIca : Window
+    public partial class MainWindow : Window
     {
-        public ComedorIca()
+        private string meConectSql;
+        private string codigoComedor;
+
+        public MainWindow(string codigoComedor)
         {
             InitializeComponent();
+            //this.codigoComedor = codigoComedor; // Guardar el código del comedor
+            //meConectSql = ConfigurationManager.ConnectionStrings["GSCOMD_2._0.Properties.Settings.GSCOMDConnectionString"]?.ConnectionString;
         }
+
+        //private void MuestraAtencionCli()
+        //{
+        //    using (SqlConnection conn = new SqlConnection(meConectSql))
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //            using (SqlCommand cmd = new SqlCommand("SP_TCASIG_Q02", conn))
+        //            {
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                cmd.Parameters.AddWithValue("@CodigoComedor", codigoComedor); // Pasar el código del comedor
+
+        //                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        //                DataTable dt = new DataTable();
+        //                adapter.Fill(dt);
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show($"Error al obtener datos: {ex.Message}");
+        //        }
+        //    }
+        //}
     }
 }

@@ -24,13 +24,13 @@
         <TextBox Name="txtCodigoTrabajador" Height="23" Width="120" TextChanged="txtCodigoTrabajador_TextChanged" Margin="144,162,225,234" />
         <Label Name="lblAsignacion" Content="Estado" HorizontalAlignment="Left" Margin="19,205,0,0" VerticalAlignment="Top" Width="266"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="124,19,0,0" VerticalAlignment="Top" Width="100"/>
-        <ListView Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,170,10,-1" SelectionChanged="ListView_SelectionChanged">
+        <!--<ListView Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,170,10,-1" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
-        </ListView>
+        </ListView>-->
         <!--<Label Name="lblAsignacion" Content="Estado" FontWeight="Bold" Grid.ColumnSpan="2" />-->
 
     </Grid>

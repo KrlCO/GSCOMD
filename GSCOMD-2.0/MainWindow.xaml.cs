@@ -31,7 +31,7 @@ namespace GSCOMD_2._0
             InitializeComponent();
 
             
-            meConectSql = ConfigurationManager.ConnectionStrings["GSCOMD_2._0.Properties.Settings.GSCOMDConnectionString1"]?.ConnectionString;
+            meConectSql = ConfigurationManager.ConnectionStrings["GSCOMD_2._0.Properties.Settings.GSCOMDConnectionString"]?.ConnectionString;
 
 
            
@@ -45,7 +45,7 @@ namespace GSCOMD_2._0
                 try
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("SP_TMCOME_002", conn))
+                    using (SqlCommand cmd = new SqlCommand("SP_TCASIG_Q02", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 

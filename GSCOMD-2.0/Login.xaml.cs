@@ -27,17 +27,17 @@ namespace GSCOMD_2._0
                 return;
             }
 
-            string comedor = ValidarCredenciales(username, password);
+            string codigoComedor = ValidarCredenciales(username, password);
 
-            if (comedor != null)
+            if (codigoComedor != null)
             {
-                MessageBox.Show($"¡Bienvenido a {comedor}!", "Acceso concedido", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"¡Bienvenido!", "Acceso concedido", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                if (comedor == "Lima")
+                if (codigoComedor == "01") // Comedor Lima
                 {
-                    new MainWindow().Show();
+                    new MainWindow(codigoComedor).Show();
                 }
-                else if (comedor == "Ica")
+                else if (codigoComedor == "02") // Comedor Ica
                 {
                     new ComedorIca().Show();
                 }
@@ -69,13 +69,11 @@ namespace GSCOMD_2._0
                             {
                                 string codigoUsuario = reader["CO_USUA"].ToString();
 
-                                // Determinar el comedor en base al código de usuario
+                                // Determinar el código del comedor
                                 if (codigoUsuario.StartsWith("COMELIMA"))
-                                    return "Lima";
+                                    return "01";
                                 else if (codigoUsuario.StartsWith("COMEICA"))
-                                {
-                                    return "Ica";
-                                }
+                                    return "02";
                             }
                         }
                     }
@@ -86,11 +84,6 @@ namespace GSCOMD_2._0
                 MessageBox.Show($"Error de conexión: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return null;
-        }
-
-        private void txtUser_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-
         }
     }
 }
