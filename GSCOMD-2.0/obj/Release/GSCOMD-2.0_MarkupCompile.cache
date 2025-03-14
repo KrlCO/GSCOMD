@@ -4,12 +4,20 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Perubus\Source\Repos\GSCOMD\GSCOMD-2.0\obj\Release\
+=======
+C:\GSCOMD-2.0\GSCOMD-2.0\obj\Release\
+>>>>>>> 974aff5 (corecciones)
 GSCOMD_2._0
 none
 false
 TRACE
+<<<<<<< HEAD
 C:\Users\Perubus\Source\Repos\GSCOMD\GSCOMD-2.0\App.xaml
+=======
+C:\GSCOMD-2.0\GSCOMD-2.0\App.xaml
+>>>>>>> 974aff5 (corecciones)
 41638557334
 
 101209775134
