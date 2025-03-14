@@ -237,7 +237,7 @@ namespace GSCOMD_2._0
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Btn Funciona");
+            MessageBox.Show("cancelando");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -246,7 +246,6 @@ namespace GSCOMD_2._0
         }
 
 
-        //Tener en cuenta para el Post loggeo se debe mostrar esta opcion-  Seleccionar el comedor y la caja que tenga asignada el comedor
         //private void listaAtencion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
            
